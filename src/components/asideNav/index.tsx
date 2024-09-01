@@ -6,7 +6,7 @@ import { FaMessage } from "react-icons/fa6";
 
 const AsideNav:React.FC = () => {
 	return (
-		<aside className="w-[288px] flex flex-col flex-grow bg-black gap-12 py-6">
+		<aside className="w-[288px] flex flex-col bg-black gap-12 py-6">
 				<Message>
 					<FaMessage/>
 					<p>Não gaste seu dinheiro <br></br>que nem um idiota</p>
