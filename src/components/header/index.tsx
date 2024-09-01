@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ src, alt }) => {
 			<UserLogin
 				src="https://github.com/gbnunes7.png"
 				alt="logo"
-				nome="Gabriel"
+				nome="Gabriel Melo"
 			/>
 		</header>
 	);
