@@ -3,6 +3,7 @@ import AnimatedDiv from "../../components/animatedDiv";
 import Button from "../../components/button";
 import MainContainer from "../../components/mainContainer";
 import useBudgetContext from "../../hooks";
+import { FaWallet } from "react-icons/fa6";
 
 const Wallet = () => {
     const {setWalletBalance} = useBudgetContext()
@@ -32,6 +33,7 @@ const Wallet = () => {
                         navigate('/')}
                          }
 					>
+						<FaWallet/>
 						Place
 					</Button>
 				</form>
