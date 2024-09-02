@@ -1,6 +1,8 @@
 import { BiSolidSend } from "react-icons/bi";
 import Button from "../button";
 
+
+
 const FormOperation = () => {
 	return (
 		<form
@@ -13,7 +15,7 @@ const FormOperation = () => {
 				</label>
 				<select
 					id="operations"
-					name="operations"
+					name="Operation Type"
 					className="p-2 bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA]"
 				>
 					<option value="income">Income</option>
@@ -29,7 +31,7 @@ const FormOperation = () => {
 				<input
 					type="text"
 					id="description"
-					name="description"
+					name="Description"
 					placeholder="Ex: Shopping at the mall"
 					required
 					minLength={3}
@@ -45,7 +47,7 @@ const FormOperation = () => {
 				<input
 					type="text"
 					id="price"
-					name="price"
+					name="Value"
 					placeholder="Ex: 4.99"
 					required
 					minLength={3}
@@ -54,7 +56,10 @@ const FormOperation = () => {
 					className="p-2 bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA]"
 				/>
 			</div>
-            <Button type="submit"><BiSolidSend/>Submit</Button>
+            <Button type="submit" onClick={(event) => {
+				event.preventDefault()
+				alert('Submit')
+			}}><BiSolidSend/>Submit</Button>
 		</form>
 	);
 };
