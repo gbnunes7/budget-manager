@@ -8,7 +8,20 @@ interface IArray {
 }
 
 const useBudgetContext = () => {
-	const { budget, setBudget } = useContext(BudgetContext)!;
+	const {
+		budget,
+		setBudget,
+		income,
+		setIncome,
+		expense,
+		setExpense,
+		balance,
+		setBalance,
+		saving,
+		setSaving,
+	} = useContext(BudgetContext)!;
+
+	setBalance(10);
 
 	const API_URL: string =
 		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
@@ -19,6 +32,10 @@ const useBudgetContext = () => {
 
 	return {
 		budget,
+		income,
+		expense,
+		balance,
+		saving,
 	};
 };
 
