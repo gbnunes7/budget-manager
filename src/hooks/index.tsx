@@ -45,18 +45,25 @@ const useBudgetContext = () => {
 	);
 	const saveReduce = operationSave.reduce((acc, curr) => acc + curr.Value, 0);
 
-	setTimeout(() => {
+	useEffect(() => {
 		setIncome(incomeReduce);
 		setSaving(saveReduce);
 		setExpense(expenseReduce);
-	}, 0);
+	}, [
+		incomeReduce,
+		saveReduce,
+		expenseReduce,
+		setIncome,
+		setSaving,
+		setExpense,
+	]);
 
-	// const handleOperationSubmit = (
-	// 	event: React.ChangeEvent<HTMLInputElement>
-	// ) => {
-	// 	event.preventDefault();
-	// 	// setBalance((balance + ))
-	// };
+	useEffect(() => {
+		setBalance(((balance +income) - expense) - saving)  
+	},[
+		balance,
+		setBalance
+	])
 
 	const API_URL: string =
 		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
