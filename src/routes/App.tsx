@@ -3,7 +3,7 @@ import FixedLayout from "../components/fixedLayout";
 import DashboardPage from "../pages/dashboard";
 import OperationsPage from "../pages/operations";
 
-function App() {
+function AppRoutes() {
 	return (
 		<BrowserRouter>
 			<Routes>
@@ -16,4 +16,4 @@ function App() {
 	);
 }
 
-export default App;
+export default AppRoutes;
