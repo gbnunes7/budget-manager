@@ -6,51 +6,54 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { RiMoneyDollarBoxFill } from "react-icons/ri";
 import { FaVault } from "react-icons/fa6";
 import MainContainer from "../../components/mainContainer";
+import AnimatedDiv from "../../components/animatedDiv";
 
 const DashboardPage = () => {
 	return (
 		<MainContainer>
-			<div>
-				<Title>My Balance</Title>
-				<p className="text-[56px] font-bold text-white"> R$ 1.150,00</p>
-			</div>
-			<BudgetOperations
-				operation="Expense"
-				description="Mercado"
-				price={49.9}
-			/>
-			<div className="flex gap-6">
-				<WalletCard
-					iconImport={BsFillArrowDownSquareFill}
-					value={459.0}
-					dataTransfer="Income"
-					src="/public/flowAmarelo.png"
-					alt="Image"
+			<AnimatedDiv>
+				<div>
+					<Title>My Balance</Title>
+					<p className="text-[56px] font-bold text-white"> R$ 1.150,00</p>
+				</div>
+				<BudgetOperations
+					operation="Expense"
+					description="Mercado"
+					price={49.9}
 				/>
-				<WalletCard
-					iconImport={GiReceiveMoney}
-					value={459.0}
-					dataTransfer="Expenses"
-					src="/public/flowVerde.png"
-					alt="Image"
-				/>
-				<WalletCard
-					iconImport={RiMoneyDollarBoxFill}
-					value={459.0}
-					dataTransfer="Balance"
-					src="/public/flowAmarelo.png"
-					alt="Image"
-				/>
-				<WalletCard
-					iconImport={FaVault}
-					value={459.0}
-					dataTransfer="Saving"
-					src="/public/flowVerde.png"
-					alt="Image"
-				/>
-			</div>
+				<div className="flex gap-6">
+					<WalletCard
+						iconImport={BsFillArrowDownSquareFill}
+						value={459.0}
+						dataTransfer="Income"
+						src="/public/flowAmarelo.png"
+						alt="Image"
+					/>
+					<WalletCard
+						iconImport={GiReceiveMoney}
+						value={459.0}
+						dataTransfer="Expenses"
+						src="/public/flowVerde.png"
+						alt="Image"
+					/>
+					<WalletCard
+						iconImport={RiMoneyDollarBoxFill}
+						value={459.0}
+						dataTransfer="Balance"
+						src="/public/flowAmarelo.png"
+						alt="Image"
+					/>
+					<WalletCard
+						iconImport={FaVault}
+						value={459.0}
+						dataTransfer="Saving"
+						src="/public/flowVerde.png"
+						alt="Image"
+					/>
+				</div>
+			</AnimatedDiv>
 		</MainContainer>
 	);
 };
 
-export default DashboardPage
+export default DashboardPage;
