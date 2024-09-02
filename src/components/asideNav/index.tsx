@@ -5,7 +5,7 @@ import {
 	MdOutlineCurrencyExchange,
 } from "react-icons/md";
 import Message from "../message";
-import { FaMessage } from "react-icons/fa6";
+import { FaMessage, FaWallet } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 const AsideNav: React.FC = () => {
@@ -22,6 +22,10 @@ const AsideNav: React.FC = () => {
 					<ListItem>
 						<MdDashboard />
 						<Link to="/">Dashboard</Link>
+					</ListItem>
+					<ListItem>
+						<FaWallet />
+						<Link to="/wallet">Wallet</Link>
 					</ListItem>
 					<ListItem>
 						<MdOutlineCurrencyExchange />
