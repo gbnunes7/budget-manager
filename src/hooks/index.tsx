@@ -22,9 +22,15 @@ const useBudgetContext = () => {
 	} = useContext(BudgetContext)!;
 
 	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setBalance(parseInt(event.target.value))
-	}
+		setBalance(parseInt(event.target.value));
+	};
 
+	const operationExpense = budget.filter(item => item.OperationType === 'Expense')
+	const operationIncome = budget.filter(item => item.OperationType === 'Income')
+	const operationSave = budget.filter(item => item.OperationType === 'Saving')
+
+
+	// const operationExpenseValue = operationExpense.reduce((acc,curr) => acc + curr.Value,0 )
 
 	const API_URL: string =
 		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
@@ -39,7 +45,7 @@ const useBudgetContext = () => {
 		expense,
 		balance,
 		saving,
-		setWalletBalance
+		setWalletBalance,
 	};
 };
 
