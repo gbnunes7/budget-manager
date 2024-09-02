@@ -22,7 +22,7 @@ const Wallet = () => {
 							name="wallet"
 							min="0"
 							step="0.01"
-							placeholder="Ex: 133.70"
+							placeholder="Ex: 13332.70"
 							className="p-2 bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA]"
 							onChange={setWalletBalance}
 						/>
