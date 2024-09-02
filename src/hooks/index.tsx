@@ -25,12 +25,38 @@ const useBudgetContext = () => {
 		setBalance(parseInt(event.target.value));
 	};
 
-	const operationExpense = budget.filter(item => item.OperationType === 'Expense')
-	const operationIncome = budget.filter(item => item.OperationType === 'Income')
-	const operationSave = budget.filter(item => item.OperationType === 'Saving')
+	const operationExpense = budget.filter(
+		(item) => item.OperationType === "Expense"
+	);
+	const operationIncome = budget.filter(
+		(item) => item.OperationType === "Income"
+	);
+	const operationSave = budget.filter(
+		(item) => item.OperationType === "Saving"
+	);
 
+	const expenseReduce = operationExpense.reduce(
+		(acc, curr) => acc + curr.Value,
+		0
+	);
+	const incomeReduce = operationIncome.reduce(
+		(acc, curr) => acc + curr.Value,
+		0
+	);
+	const saveReduce = operationSave.reduce((acc, curr) => acc + curr.Value, 0);
 
-	// const operationExpenseValue = operationExpense.reduce((acc,curr) => acc + curr.Value,0 )
+	setTimeout(() => {
+		setIncome(incomeReduce);
+		setSaving(saveReduce);
+		setExpense(expenseReduce);
+	}, 0);
+
+	// const handleOperationSubmit = (
+	// 	event: React.ChangeEvent<HTMLInputElement>
+	// ) => {
+	// 	event.preventDefault();
+	// 	// setBalance((balance + ))
+	// };
 
 	const API_URL: string =
 		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
