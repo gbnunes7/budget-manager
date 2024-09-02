@@ -22,28 +22,28 @@ const DashboardPage = () => {
 						iconImport={BsFillArrowDownSquareFill}
 						value={459.0}
 						dataTransfer="Income"
-						src="/public/flowAmarelo.png"
+						src="/flowAmarelo.png"
 						alt="Image"
 					/>
 					<WalletCard
 						iconImport={GiReceiveMoney}
 						value={459.0}
 						dataTransfer="Expenses"
-						src="/public/flowVerde.png"
+						src="/flowVerde.png"
 						alt="Image"
 					/>
 					<WalletCard
 						iconImport={RiMoneyDollarBoxFill}
 						value={459.0}
 						dataTransfer="Balance"
-						src="/public/flowAmarelo.png"
+						src="/flowAmarelo.png"
 						alt="Image"
 					/>
 					<WalletCard
 						iconImport={FaVault}
 						value={459.0}
 						dataTransfer="Saving"
-						src="/public/flowVerde.png"
+						src="/flowVerde.png"
 						alt="Image"
 					/>
 				</div>
