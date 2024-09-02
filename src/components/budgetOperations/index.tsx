@@ -1,26 +1,21 @@
 import { MdDelete } from "react-icons/md";
+import useBudgetContext from "../../hooks";
 
-type Operation = 'Income' | 'Expense' | 'Saving';
+type OperationType ='Income' | 'Saving' | 'Expense'
 
-interface budgetOperationProps {
-    operation: Operation
-    description: string
-    price: number
-}
+const BudgetOperations: React.FC = () => {
+	const getBgColor = (OperationType: OperationType | string) => {
+		switch (OperationType) {
+			case "Income":
+				return "bg-green-500";
+			case "Expense":
+				return "bg-red-500";
+			case "Saving":
+				return "bg-yellow-500";
+		}
+	};
 
-
-const BudgetOperations:React.FC<budgetOperationProps> = ({operation, description, price}) => {
-    
-    const getBgColor = (operation: Operation) => {
-        switch (operation) {
-            case 'Income':
-                return 'bg-green-500';
-            case 'Expense':
-                return 'bg-red-500';
-            case 'Saving':
-                return 'bg-yellow-500'
-        }
-    }
+	const { budget } = useBudgetContext();
 
 	return (
 		<table className="min-w-full rounded-lg overflow-hidden">
@@ -39,14 +34,22 @@ const BudgetOperations:React.FC<budgetOperationProps> = ({operation, description
 				</tr>
 			</thead>
 			<tbody>
-				<tr className="bg-black text-left text-white text-sm font-semibold">
-					<td className="py-2 px-4"><span className={`px-2 py-1 rounded-sm ${getBgColor(operation)}`}>{operation}</span></td>
-					<td className="py-2 px-4">{description}</td>
-					<td className="py-2 px-4">{price}</td>
-					<td className="py-2">
-						<button><MdDelete className="text-red-700 text-2xl" /></button>
-					</td>
-				</tr>                
+				{budget.map((item,index) => (
+					<tr key={index} className="bg-black text-left text-white text-sm font-semibold">
+						<td className="py-2 px-4">
+							<span className={`px-2 py-1 rounded-sm ${getBgColor(item.OperationType)}`}>
+								{item.OperationType}
+							</span>
+						</td>
+						<td className="py-2 px-4">{item.Description}</td>
+						<td className="py-2 px-4">{item.Value}</td>
+						<td className="py-2">
+							<button>
+								<MdDelete className="text-red-700 text-2xl" />
+							</button>
+						</td>
+					</tr>
+				))}
 			</tbody>
 		</table>
 	);
