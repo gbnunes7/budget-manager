@@ -32,7 +32,7 @@ const useBudgetContext = () => {
 
 	//Input for wallet page
 	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setBalance(parseInt(event.target.value));
+		setBalance(parseFloat(event.target.value));
 	};
 
 	const API_URL: string =
@@ -60,7 +60,7 @@ const useBudgetContext = () => {
 	};
 
 	const onHandleChangeValor = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setValor(parseInt(event.target.value));
+		setValor(parseFloat(event.target.value));
 	};
 	const onHandleChangeDescription = (
 		event: React.ChangeEvent<HTMLInputElement>
