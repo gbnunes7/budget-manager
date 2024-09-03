@@ -37,7 +37,9 @@ const useBudgetContext = () => {
 
 	// axios get dbjson
 	useEffect(() => {
+	
 		const fetchData = async () => {
+			if(setBudget.length > 0) return
 			try {
 				const response = await axios.get<IArray[]>(API_URL);
 				setBudget(response.data);
