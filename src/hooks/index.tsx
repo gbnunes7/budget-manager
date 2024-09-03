@@ -19,10 +19,26 @@ const useBudgetContext = () => {
 		setBalance,
 		saving,
 		setSaving,
+		selectedOp,
+		setSelectedOp,
+		description,
+		setDescription,
+		valor,
+		setValor,
 	} = useContext(BudgetContext)!;
 
 	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
 		setBalance(parseInt(event.target.value));
+	};
+	const onHandleChangeOperation = (event: React.ChangeEvent<HTMLSelectElement>) => {
+		setSelectedOp(event.target.value);
+	};
+
+	const onHandleChangeValor = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setValor(parseInt(event.target.value));
+	};
+	const onHandleChangeDescription = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setDescription(event.target.value);
 	};
 
 	useEffect(() => {
@@ -72,6 +88,9 @@ const useBudgetContext = () => {
 		balance,
 		saving,
 		setWalletBalance,
+		onHandleChangeOperation,
+		onHandleChangeValor,
+		onHandleChangeDescription,
 	};
 };
 
