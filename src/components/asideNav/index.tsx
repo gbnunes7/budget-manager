@@ -20,12 +20,12 @@ const AsideNav: React.FC = () => {
 			<nav className="w-full ">
 				<ul className="flex flex-col gap-4">
 					<ListItem>
-						<MdDashboard />
-						<Link to="/">Dashboard</Link>
+						<FaWallet />
+						<Link to="/">Wallet</Link>
 					</ListItem>
 					<ListItem>
-						<FaWallet />
-						<Link to="/wallet">Wallet</Link>
+						<MdDashboard />
+						<Link to="/dashboard">Dashboard</Link>
 					</ListItem>
 					<ListItem>
 						<MdOutlineCurrencyExchange />

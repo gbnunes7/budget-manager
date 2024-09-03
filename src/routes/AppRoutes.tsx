@@ -5,16 +5,15 @@ import OperationsPage from "../pages/operations";
 import BudgetProvider from "../context";
 import Wallet from "../pages/wallet";
 
-
 function AppRoutes() {
 	return (
 		<BrowserRouter>
 			<BudgetProvider>
 				<Routes>
 					<Route path="/" element={<FixedLayout />}>
-						<Route path="/" element={<DashboardPage />} />
+						<Route path="/" element={<Wallet />} />
 						<Route path="/operations" element={<OperationsPage />} />
-						<Route path="/wallet" element={<Wallet />} />
+						<Route path="/dashboard" element={<DashboardPage />} />
 					</Route>
 				</Routes>
 			</BudgetProvider>
@@ -23,5 +22,3 @@ function AppRoutes() {
 }
 
 export default AppRoutes;
-
-
