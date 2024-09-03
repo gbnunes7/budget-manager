@@ -1,9 +1,13 @@
 import { MdDelete } from "react-icons/md";
 import useBudgetContext from "../../hooks";
 
-type OperationType ='Income' | 'Saving' | 'Expense'
+type OperationType = "Income" | "Saving" | "Expense";
 
 const BudgetOperations: React.FC = () => {
+	const { budget, handleDelete} = useBudgetContext();
+
+	
+
 	const getBgColor = (OperationType: OperationType | string) => {
 		switch (OperationType) {
 			case "Income":
@@ -14,8 +18,6 @@ const BudgetOperations: React.FC = () => {
 				return "bg-yellow-500";
 		}
 	};
-
-	const { budget } = useBudgetContext();
 
 	return (
 		<table className="min-w-full rounded-lg overflow-hidden">
@@ -34,17 +36,24 @@ const BudgetOperations: React.FC = () => {
 				</tr>
 			</thead>
 			<tbody>
-				{budget.map((item,index) => (
-					<tr key={index} className="bg-black text-left text-white text-sm font-semibold">
+				{budget.map((item, index) => (
+					<tr
+						key={index}
+						className="bg-black text-left text-white text-sm font-semibold"
+					>
 						<td className="py-2 px-4">
-							<span className={`px-2 py-1 rounded-sm ${getBgColor(item.OperationType)}`}>
+							<span
+								className={`px-2 py-1 rounded-sm ${getBgColor(
+									item.OperationType
+								)}`}
+							>
 								{item.OperationType}
 							</span>
 						</td>
 						<td className="py-2 px-4">{item.Description}</td>
 						<td className="py-2 px-4">{item.Value}</td>
 						<td className="py-2">
-							<button>
+							<button onClick={() => handleDelete(index)}>
 								<MdDelete className="text-red-700 text-2xl" />
 							</button>
 						</td>
