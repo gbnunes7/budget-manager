@@ -4,6 +4,7 @@ import DashboardPage from "../pages/dashboard";
 import OperationsPage from "../pages/operations";
 import BudgetProvider from "../context";
 import Wallet from "../pages/wallet";
+import Analytics from "../pages/analytics";
 
 function AppRoutes() {
 	return (
@@ -14,7 +15,7 @@ function AppRoutes() {
 						<Route path="/" element={<Wallet />} />
 						<Route path="/operations" element={<OperationsPage />} />
 						<Route path="/dashboard" element={<DashboardPage />} />
-						<Route path="/analytics" element={<div />} />
+						<Route path="/analytics" element={<Analytics />} />
 					</Route>
 				</Routes>
 			</BudgetProvider>
