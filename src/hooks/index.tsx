@@ -25,45 +25,38 @@ const useBudgetContext = () => {
 		setBalance(parseInt(event.target.value));
 	};
 
-	const operationExpense = budget.filter(
-		(item) => item.OperationType === "Expense"
-	);
-	const operationIncome = budget.filter(
-		(item) => item.OperationType === "Income"
-	);
-	const operationSave = budget.filter(
-		(item) => item.OperationType === "Saving"
-	);
-
-	const expenseReduce = operationExpense.reduce(
-		(acc, curr) => acc + curr.Value,
-		0
-	);
-	const incomeReduce = operationIncome.reduce(
-		(acc, curr) => acc + curr.Value,
-		0
-	);
-	const saveReduce = operationSave.reduce((acc, curr) => acc + curr.Value, 0);
-
 	useEffect(() => {
-		setIncome(incomeReduce);
-		setSaving(saveReduce);
-		setExpense(expenseReduce);
-	}, [
-		incomeReduce,
-		saveReduce,
-		expenseReduce,
-		setIncome,
-		setSaving,
-		setExpense,
-	]);
+		if (budget.length === 0) return;
+	  
+		const operationExpense = budget.filter(
+		  (item) => item.OperationType === "Expense"
+		);
+		const operationIncome = budget.filter(
+		  (item) => item.OperationType === "Income"
+		);
+		const operationSave = budget.filter(
+		  (item) => item.OperationType === "Saving"
+		);
+	  
+		const expenseReduce = operationExpense.reduce(
+		  (acc, curr) => acc + curr.Value,
+		  0
+		);
+		const incomeReduce = operationIncome.reduce(
+		  (acc, curr) => acc + curr.Value,
+		  0
+		);
+		const savingReduce = operationSave.reduce(
+		  (acc, curr) => acc + curr.Value,
+		  0
+		);
+	  
+		setIncome(Math.floor(incomeReduce));
+		setSaving(Math.floor(savingReduce));
+		setExpense(Math.floor(expenseReduce));
+	  
+	  }, [budget, setIncome, setSaving, setExpense]);
 
-	useEffect(() => {
-		setBalance(((balance +income) - expense) - saving)  
-	},[
-		balance,
-		setBalance
-	])
 
 	const API_URL: string =
 		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
