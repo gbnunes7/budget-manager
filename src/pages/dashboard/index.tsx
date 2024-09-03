@@ -17,7 +17,7 @@ const DashboardPage = () => {
 			<AnimatedDiv>
 				<div>
 					<Title>My Balance</Title>
-					<p className="text-[56px] font-bold text-white"> R$ {balance}</p>
+					<p className="text-[56px] font-bold text-white"> R$ {balance.toFixed(2)}</p>
 				</div>
 				<BudgetOperations />
 				<div className="flex gap-6">

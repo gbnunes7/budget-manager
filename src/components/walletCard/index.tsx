@@ -15,7 +15,7 @@ const WalletCard:React.FC<WalletCardProps> = ({iconImport: Icon,value,dataTransf
 				<Icon/>
 			</span>
 			<div>
-				<p className="text-white text-lg font-bold">R$ {value}</p>
+				<p className="text-white text-lg font-bold">R$ {value.toFixed(2)}</p>
 				<p className="text-[#D0D0DA] ">{dataTransfer}</p>
 			</div>
 			<img
