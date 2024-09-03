@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const AsideNav: React.FC = () => {
 	return (
-		<aside className="w-1/5 flex flex-col bg-black gap-12 py-6">
+		<aside className="w-1/5 flex flex-col bg-black gap-12 py-6 px-5">
 			<Message>
 				<FaMessage />
 				<p>
