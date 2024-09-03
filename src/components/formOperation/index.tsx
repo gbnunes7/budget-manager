@@ -61,13 +61,14 @@ const FormOperation = () => {
 						type="text"
 						id="price"
 						name="Value"
+						pattern="^\d+(\.\d+)?$"
 						placeholder="e.g., 4.99"
 						required
 						className="p-2 bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA]"
 						onChange={onHandleChangeValor}
 						aria-label="Price"
 						aria-required="true"
-						title="Enter the price in dollars, e.g., 4.99"
+						title="Follow the example: 4.99 (Numbers and dot)"
 					/>
 				</div>
 				<Button type="submit">
