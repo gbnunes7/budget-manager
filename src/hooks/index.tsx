@@ -81,6 +81,33 @@ const useBudgetContext = () => {
 		axios.get<IArray[]>(API_URL).then((res) => setBudget(res.data));
 	}, [setBudget]);
 
+	const onHandleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
+		event.preventDefault();
+
+		try {
+			const response = await axios.post(API_URL, {
+				OperationType: selectedOp,
+				Description: description,
+				Value: valor,
+			});
+			console.log(response);
+
+			setBalance((prevBalance) => {
+				switch (selectedOp) {
+					case "Income":
+						return prevBalance + valor;
+					case "Expense":
+					case "Saving":
+						return prevBalance - valor;
+					default:
+						return prevBalance;
+				}
+			});
+		} catch (err) {
+			console.error("Error posting data:", err);
+		}
+	}
+
 	return {
 		budget,
 		income,
@@ -91,6 +118,7 @@ const useBudgetContext = () => {
 		onHandleChangeOperation,
 		onHandleChangeValor,
 		onHandleChangeDescription,
+		onHandleSubmit,
 	};
 };
 
