@@ -24,12 +24,12 @@ const AsideNav: React.FC = () => {
 						<Link to="/">Wallet</Link>
 					</ListItem>
 					<ListItem>
-						<MdDashboard />
-						<Link to="/dashboard">Dashboard</Link>
-					</ListItem>
-					<ListItem>
 						<MdOutlineCurrencyExchange />
 						<Link to="/operations">Operations</Link>
+					</ListItem>
+					<ListItem>
+						<MdDashboard />
+						<Link to="/dashboard">Dashboard</Link>
 					</ListItem>
 					<ListItem>
 						<MdAnalytics />
