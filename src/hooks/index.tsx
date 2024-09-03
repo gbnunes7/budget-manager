@@ -137,6 +137,19 @@ const useBudgetContext = () => {
 		}
 	};
 
+	const onHandleDelete = (arr: IArray[], index: number) => {
+		return arr.filter((_, i) => i !== index);
+	};
+
+	const handleDelete = (index: number) => {
+		const updatedBudget = onHandleDelete(budget, index);
+		setBudget(updatedBudget);
+
+		axios.delete(API_URL + index)
+		.then(res => console.log(res))
+		.catch(err => console.error(err))
+	};
+
 	return {
 		budget,
 		income,
@@ -149,6 +162,7 @@ const useBudgetContext = () => {
 		onHandleChangeOperation,
 		onHandleChangeValor,
 		onHandleChangeDescription,
+		handleDelete
 	};
 };
 
