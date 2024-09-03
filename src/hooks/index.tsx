@@ -96,15 +96,24 @@ const useBudgetContext = () => {
 
 	const onHandleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
 		event.preventDefault();
-
+	
 		try {
-			const response = await axios.post(API_URL, {
+			await axios.post(API_URL, {
 				OperationType: selectedOp,
 				Description: description,
 				Value: valor,
 			});
-			console.log(response);
-
+	
+			setBudget((prevBudget) => [
+				...prevBudget,
+				{
+					OperationType: selectedOp,
+					Description: description,
+					Value: valor,
+				},
+			]);
+	
+			// Atualizar o saldo
 			setBalance((prevBalance) => {
 				switch (selectedOp) {
 					case "Income":
