@@ -27,6 +27,11 @@ const useBudgetContext = () => {
 		setValor,
 	} = useContext(BudgetContext)!;
 
+	//Input for wallet page
+	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
+		setBalance(parseInt(event.target.value));
+	};
+	
 	const API_URL: string = "https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
 
 	// axios get dbjson
