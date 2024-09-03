@@ -14,6 +14,7 @@ function AppRoutes() {
 						<Route path="/" element={<Wallet />} />
 						<Route path="/operations" element={<OperationsPage />} />
 						<Route path="/dashboard" element={<DashboardPage />} />
+						<Route path="/analytics" element={<div />} />
 					</Route>
 				</Routes>
 			</BudgetProvider>
