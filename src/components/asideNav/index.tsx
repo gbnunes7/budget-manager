@@ -4,19 +4,17 @@ import {
 	MdDashboard,
 	MdOutlineCurrencyExchange,
 } from "react-icons/md";
-import Message from "../message";
 import { FaMessage, FaWallet } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import SwiperMessage from "../swiper";
 
 const AsideNav: React.FC = () => {
 	return (
 		<aside className="w-1/5 flex flex-col bg-black gap-12 py-6 px-5">
-			<Message>
-				<FaMessage />
-				<p>
-					Não gaste seu dinheiro <br></br>que nem um idiota
-				</p>
-			</Message>
+			<div className="flex items-center">
+				<FaMessage  className="text-white text-2xl"/>
+				<SwiperMessage />
+			</div>
 			<nav className="w-full ">
 				<ul className="flex flex-col gap-4">
 					<ListItem>
