@@ -1,17 +1,23 @@
-import { useNavigate } from "react-router";
 import AnimatedDiv from "../../components/animatedDiv";
 import Button from "../../components/button";
 import MainContainer from "../../components/mainContainer";
+import Title from "../../components/title";
 import useBudgetContext from "../../hooks";
 import { FaWallet } from "react-icons/fa6";
 
 const Wallet = () => {
-    const {setWalletBalance} = useBudgetContext()
-    const navigate = useNavigate()
+	const { setWalletBalance, navigate } = useBudgetContext();
 	return (
 		<MainContainer>
 			<AnimatedDiv>
-				<form className="flex flex-col space-y-4 p-6 gap-4 bg-black text-white rounded-lg shadow-md w-3/5">
+				<Title>Enter the amount you have in your account!</Title>
+				<form
+					onSubmit={(event) => {
+						event.preventDefault();
+						navigate("/operations");
+					}}
+					className="flex flex-col space-y-4 p-6 gap-4 bg-black text-white rounded-lg shadow-md w-3/5"
+				>
 					<div className="flex flex-col gap-2">
 						<label htmlFor="wallet" className="mb-2 text-xl font-semibold">
 							Enter your available account balance:
@@ -27,13 +33,8 @@ const Wallet = () => {
 							onChange={setWalletBalance}
 						/>
 					</div>
-					<Button
-						type="submit"
-						onClick={(event) => {event.preventDefault()
-                        navigate('/')}
-                         }
-					>
-						<FaWallet/>
+					<Button type="submit">
+						<FaWallet />
 						Place
 					</Button>
 				</form>

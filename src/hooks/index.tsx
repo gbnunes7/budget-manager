@@ -1,6 +1,7 @@
 import { useContext, useEffect } from "react";
 import { BudgetContext } from "../context";
 import axios from "axios";
+import { useNavigate } from "react-router";
 interface IArray {
 	OperationType: string;
 	Description: string;
@@ -26,6 +27,8 @@ const useBudgetContext = () => {
 		valor,
 		setValor,
 	} = useContext(BudgetContext)!;
+
+	const navigate = useNavigate()
 
 	//Input for wallet page
 	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -127,6 +130,8 @@ const useBudgetContext = () => {
 						return prevBalance;
 				}
 			});
+
+			navigate('/dashboard')
 		} catch (err) {
 			console.error("Error posting data:", err);
 		}
@@ -138,6 +143,7 @@ const useBudgetContext = () => {
 		expense,
 		balance,
 		saving,
+		navigate,
 		setWalletBalance,
 		onHandleSubmit,
 		onHandleChangeOperation,

@@ -27,11 +27,11 @@ const FormOperation = () => {
 						className="p-2 bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA]"
 						onChange={onHandleChangeOperation}
 					>
-						<option value="" disabled>
+						<option value="select an option" disabled selected>
 							Select an option
 						</option>
-						<option value="Income">Income</option>
 						<option value="Expense">Expense</option>
+						<option value="Income">Income</option>
 						<option value="Saving">Saving</option>
 					</select>
 				</div>
