@@ -21,6 +21,12 @@ interface BudgetContextType {
 	setBalance: React.Dispatch<React.SetStateAction<number>>;
 	saving: number;
 	setSaving: React.Dispatch<React.SetStateAction<number>>;
+	selectedOp: string;
+	setSelectedOp: React.Dispatch<React.SetStateAction<string>>;
+	description: string;
+	setDescription: React.Dispatch<React.SetStateAction<string>>;
+	valor: number;
+	setValor: React.Dispatch<React.SetStateAction<number>>;
 }
 
 export const BudgetContext = createContext<BudgetContextType | undefined>(
@@ -33,6 +39,9 @@ const BudgetProvider: React.FC<BudgetProviderProps> = ({ children }) => {
 	const [expense, setExpense] = useState(0);
 	const [balance, setBalance] = useState(0);
 	const [saving, setSaving] = useState(0);
+	const [selectedOp, setSelectedOp] = useState("Income");
+	const [description, setDescription] = useState("");
+	const [valor, setValor] = useState(0);
 
 	return (
 		<BudgetContext.Provider
@@ -47,6 +56,12 @@ const BudgetProvider: React.FC<BudgetProviderProps> = ({ children }) => {
 				setBalance,
 				saving,
 				setSaving,
+				selectedOp,
+				setSelectedOp,
+				description,
+				setDescription,
+				valor,
+				setValor
 			}}
 		>
 			{children}
