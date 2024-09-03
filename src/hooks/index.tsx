@@ -27,9 +27,21 @@ const useBudgetContext = () => {
 		setValor,
 	} = useContext(BudgetContext)!;
 
-	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
-		setBalance(parseInt(event.target.value));
-	};
+	const API_URL: string = "https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
+
+	// axios get dbjson
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get<IArray[]>(API_URL);
+				setBudget(response.data);
+			} catch (error) {
+				console.error("Error fetching data:", error);
+			}
+		};
+		fetchData();
+	}, [setBudget]);
+	
 	const onHandleChangeOperation = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		setSelectedOp(event.target.value);
 	};
@@ -73,14 +85,6 @@ const useBudgetContext = () => {
 	  
 	  }, [budget, setIncome, setSaving, setExpense]);
 
-
-	const API_URL: string =
-		"https://sheet2api.com/v1/ChIyuf9XQFCK/budget-manager/P%C3%A1gina1?";
-	// Consuming API sheet2API
-	useEffect(() => {
-		axios.get<IArray[]>(API_URL).then((res) => setBudget(res.data));
-	}, [setBudget]);
-
 	const onHandleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
@@ -114,7 +118,6 @@ const useBudgetContext = () => {
 		expense,
 		balance,
 		saving,
-		setWalletBalance,
 		onHandleChangeOperation,
 		onHandleChangeValor,
 		onHandleChangeDescription,
