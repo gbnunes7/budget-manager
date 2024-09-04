@@ -7,6 +7,7 @@ import {
 import { FaMessage, FaWallet } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import SwiperMessage from "../swiper";
+import CryptoCard from "../crypto/intex";
 
 const AsideNav: React.FC = () => {
 	return (
@@ -35,6 +36,7 @@ const AsideNav: React.FC = () => {
 					</ListItem>
 				</ul>
 			</nav>
+			<CryptoCard/>
 		</aside>
 	);
 };
