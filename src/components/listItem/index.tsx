@@ -1,13 +1,11 @@
-interface ListItemProps {
-    children: React.ReactNode
-}
+import isAChild from "../../interface/children";
 
-const ListItem:React.FC<ListItemProps> = ({children}) => {
-    return (
-        <li className="text-[20px] text-white flex items-center gap-4 hover:scale-105 transition">
-           {children}
-        </li>
-    )
+const ListItem: React.FC<isAChild> = ({ children }) => {
+	return (
+		<li className="text-[20px] text-white flex items-center gap-4 hover:scale-105 transition">
+			{children}
+		</li>
+	);
 };
 
-export default ListItem
+export default ListItem;
