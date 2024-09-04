@@ -4,9 +4,7 @@ import useBudgetContext from "../../hooks";
 type OperationType = "Income" | "Saving" | "Expense";
 
 const BudgetOperations: React.FC = () => {
-	const { budget, handleDelete} = useBudgetContext();
-
-	
+	const { budget, handleDelete } = useBudgetContext();
 
 	const getBgColor = (OperationType: OperationType | string) => {
 		switch (OperationType) {
