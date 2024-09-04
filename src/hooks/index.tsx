@@ -2,11 +2,7 @@ import { useContext, useEffect } from "react";
 import { BudgetContext } from "../context";
 import axios from "axios";
 import { useNavigate } from "react-router";
-interface IArray {
-	OperationType: string;
-	Description: string;
-	Value: number;
-}
+import BArray from "../interface/BArray";
 
 const useBudgetContext = () => {
 	const {
@@ -28,7 +24,7 @@ const useBudgetContext = () => {
 		setValor,
 	} = useContext(BudgetContext)!;
 
-	const navigate = useNavigate()
+	const navigate = useNavigate();
 
 	//Input for wallet page
 	const setWalletBalance = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,11 +36,10 @@ const useBudgetContext = () => {
 
 	// axios get dbjson
 	useEffect(() => {
-	
 		const fetchData = async () => {
-			if(setBudget.length > 0) return
+			if (setBudget.length > 0) return;
 			try {
-				const response = await axios.get<IArray[]>(API_URL);
+				const response = await axios.get<BArray[]>(API_URL);
 				setBudget(response.data);
 			} catch (error) {
 				console.error("Error fetching data:", error);
@@ -101,14 +96,14 @@ const useBudgetContext = () => {
 
 	const onHandleSubmit = async (event: React.ChangeEvent<HTMLFormElement>) => {
 		event.preventDefault();
-	
+
 		try {
 			await axios.post(API_URL, {
 				OperationType: selectedOp,
 				Description: description,
 				Value: valor,
 			});
-	
+
 			setBudget((prevBudget) => [
 				...prevBudget,
 				{
@@ -117,7 +112,7 @@ const useBudgetContext = () => {
 					Value: valor,
 				},
 			]);
-	
+
 			// Atualizar o saldo
 			setBalance((prevBalance) => {
 				switch (selectedOp) {
@@ -131,13 +126,13 @@ const useBudgetContext = () => {
 				}
 			});
 
-			navigate('/dashboard')
+			navigate("/dashboard");
 		} catch (err) {
 			console.error("Error posting data:", err);
 		}
 	};
 
-	const onHandleDelete = (arr: IArray[], index: number) => {
+	const onHandleDelete = (arr: BArray[], index: number) => {
 		return arr.filter((_, i) => i !== index);
 	};
 
@@ -145,9 +140,10 @@ const useBudgetContext = () => {
 		const updatedBudget = onHandleDelete(budget, index);
 		setBudget(updatedBudget);
 
-		axios.delete(API_URL + index)
-		.then(res => console.log(res))
-		.catch(err => console.error(err))
+		axios
+			.delete(API_URL + index)
+			.then((res) => console.log(res))
+			.catch((err) => console.error(err));
 	};
 
 	return {
@@ -162,7 +158,7 @@ const useBudgetContext = () => {
 		onHandleChangeOperation,
 		onHandleChangeValor,
 		onHandleChangeDescription,
-		handleDelete
+		handleDelete,
 	};
 };
 
