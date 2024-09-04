@@ -22,6 +22,10 @@ const useBudgetContext = () => {
 		setDescription,
 		valor,
 		setValor,
+		btc,
+		setBtc,
+		eth,
+		setEth,
 	} = useContext(BudgetContext)!;
 
 	const navigate = useNavigate();
@@ -146,12 +150,56 @@ const useBudgetContext = () => {
 			.catch((err) => console.error(err));
 	};
 
+	const coin: string = "bitcoin";
+	const coin2: string = "ethereum";
+
+	const options = {
+		headers: {
+			accept: "application/json",
+			"x-cg-demo-api-key": "	CG-4v864zGKfd2z9epApLFESADD",
+		},
+	};
+
+	const fetchData = async () => {
+		try {
+			const res = await axios.get(
+				`https://api.coingecko.com/api/v3/coins/${coin}`,
+				options
+			);
+			setBtc(res.data);
+            console.log(res.data)
+
+			const res2 = await axios.get(
+				`https://api.coingecko.com/api/v3/coins/${coin2}`,
+				options
+			);
+			setEth(res2.data);
+            console.log(res2.data) 
+
+		} catch (err) {
+			console.error(err);
+		}
+	};
+
+	useEffect(() => {
+		fetchData();
+
+		const interval = setInterval(() => {
+			fetchData();
+		}, 60000);
+
+		return () => clearInterval(interval);
+	}, []);
+
+
 	return {
 		budget,
 		income,
 		expense,
 		balance,
 		saving,
+		btc,
+		eth,
 		navigate,
 		setWalletBalance,
 		onHandleSubmit,
