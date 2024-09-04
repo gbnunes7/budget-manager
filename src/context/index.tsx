@@ -27,6 +27,19 @@ interface BudgetContextType {
 	setDescription: React.Dispatch<React.SetStateAction<string>>;
 	valor: number;
 	setValor: React.Dispatch<React.SetStateAction<number>>;
+	btc: CryptoData | null;
+	setBtc: React.Dispatch<React.SetStateAction<CryptoData | null>>;
+	eth: CryptoData | null;
+	setEth: React.Dispatch<React.SetStateAction<CryptoData | null>>;
+}
+
+interface CryptoData {
+	name: string;
+	market_data: {
+		current_price: {
+			usd: number;
+		};
+	};
 }
 
 export const BudgetContext = createContext<BudgetContextType | undefined>(
@@ -42,6 +55,8 @@ const BudgetProvider: React.FC<BudgetProviderProps> = ({ children }) => {
 	const [selectedOp, setSelectedOp] = useState("Income");
 	const [description, setDescription] = useState("");
 	const [valor, setValor] = useState(0);
+	const [btc, setBtc] = useState<CryptoData | null>(null);
+	const [eth, setEth] = useState<CryptoData | null>(null);
 
 	return (
 		<BudgetContext.Provider
@@ -61,7 +76,11 @@ const BudgetProvider: React.FC<BudgetProviderProps> = ({ children }) => {
 				description,
 				setDescription,
 				valor,
-				setValor
+				setValor,
+				btc,
+				setBtc,
+				eth,
+				setEth,
 			}}
 		>
 			{children}
