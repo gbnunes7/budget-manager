@@ -167,14 +167,12 @@ const useBudgetContext = () => {
 				options
 			);
 			setBtc(res.data);
-            console.log(res.data)
 
 			const res2 = await axios.get(
 				`https://api.coingecko.com/api/v3/coins/${coin2}`,
 				options
 			);
 			setEth(res2.data);
-            console.log(res2.data) 
 
 		} catch (err) {
 			console.error(err);
