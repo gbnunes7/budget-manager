@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { BudgetContext } from "../context";
+import { BudgetContext } from "../context/budgetContext";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import BArray from "../interface/BArray";
@@ -26,6 +26,12 @@ const useBudgetContext = () => {
 		setBtc,
 		eth,
 		setEth,
+		setUserEmail,
+		setUserPassword,
+		userEmail,
+		userPassword,
+		err,
+		setErr
 	} = useContext(BudgetContext)!;
 
 	const navigate = useNavigate();
@@ -167,14 +173,12 @@ const useBudgetContext = () => {
 				options
 			);
 			setBtc(res.data);
-            console.log(res.data)
 
 			const res2 = await axios.get(
 				`https://api.coingecko.com/api/v3/coins/${coin2}`,
 				options
 			);
 			setEth(res2.data);
-            console.log(res2.data) 
 
 		} catch (err) {
 			console.error(err);
@@ -207,6 +211,12 @@ const useBudgetContext = () => {
 		onHandleChangeValor,
 		onHandleChangeDescription,
 		handleDelete,
+		setUserEmail,
+		setUserPassword,
+		userEmail,
+		userPassword,
+		err,
+		setErr,
 	};
 };
 

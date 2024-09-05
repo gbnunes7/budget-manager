@@ -18,47 +18,49 @@ const BudgetOperations: React.FC = () => {
 	};
 
 	return (
-		<table className="min-w-full rounded-lg overflow-hidden">
-			<thead>
-				<tr>
-					<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
-						Operation
-					</th>
-					<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
-						Description
-					</th>
-					<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
-						Price
-					</th>
-					<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase"></th>
-				</tr>
-			</thead>
-			<tbody>
-				{budget.map((item, index) => (
-					<tr
-						key={index}
-						className="bg-black text-left text-white text-sm font-semibold"
-					>
-						<td className="py-2 px-4">
-							<span
-								className={`px-2 py-1 rounded-sm ${getBgColor(
-									item.OperationType
-								)}`}
-							>
-								{item.OperationType}
-							</span>
-						</td>
-						<td className="py-2 px-4">{item.Description}</td>
-						<td className="py-2 px-4">{item.Value}</td>
-						<td className="py-2">
-							<button onClick={() => handleDelete(index)}>
-								<MdDelete className="text-red-700 text-2xl" />
-							</button>
-						</td>
+		<div className="min-h-[350px] min-w-full">
+			<table className="min-w-full rounded-lg overflow-hidden">
+				<thead>
+					<tr>
+						<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
+							Operation
+						</th>
+						<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
+							Description
+						</th>
+						<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase">
+							Price
+						</th>
+						<th className="py-2 px-4 bg-black text-left text-base font-semibold text-white uppercase"></th>
 					</tr>
-				))}
-			</tbody>
-		</table>
+				</thead>
+				<tbody>
+					{budget.map((item, index) => (
+						<tr
+							key={index}
+							className="bg-black text-left text-white text-sm font-semibold"
+						>
+							<td className="py-2 px-4">
+								<span
+									className={`px-2 py-1 rounded-sm ${getBgColor(
+										item.OperationType
+									)}`}
+								>
+									{item.OperationType}
+								</span>
+							</td>
+							<td className="py-2 px-4">{item.Description}</td>
+							<td className="py-2 px-4">{item.Value}</td>
+							<td className="py-2">
+								<button onClick={() => handleDelete(index)}>
+									<MdDelete className="text-red-700 text-2xl" />
+								</button>
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
 	);
 };
 
