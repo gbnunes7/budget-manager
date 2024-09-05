@@ -66,6 +66,7 @@ You can also visit the deployed version of the application [here](https://budget
 
 In the next version, new features will be added:
 
+- Responsive Design
 - Backend in Node.js
 - Database in PostgreSQL
 - Login data in PostgreSQL
