@@ -30,6 +30,8 @@ const useBudgetContext = () => {
 		setUserPassword,
 		userEmail,
 		userPassword,
+		err,
+		setErr
 	} = useContext(BudgetContext)!;
 
 	const navigate = useNavigate();
@@ -213,6 +215,8 @@ const useBudgetContext = () => {
 		setUserPassword,
 		userEmail,
 		userPassword,
+		err,
+		setErr,
 	};
 };
 

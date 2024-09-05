@@ -32,6 +32,8 @@ interface BudgetContextType {
 	setUserEmail: React.Dispatch<React.SetStateAction<string>>
 	userPassword: string
 	setUserPassword: React.Dispatch<React.SetStateAction<string>>
+	err: string
+	setErr: React.Dispatch<React.SetStateAction<string>>
 }
 
 interface CryptoData {
@@ -60,6 +62,7 @@ const BudgetProvider: React.FC<isAChild> = ({ children }) => {
 	const [eth, setEth] = useState<CryptoData | null>(null);
 	const [userEmail,setUserEmail] = useState('')
 	const [userPassword,setUserPassword] = useState('')
+	const [err, setErr] = useState('')
 
 	return (
 		<BudgetContext.Provider
@@ -87,7 +90,9 @@ const BudgetProvider: React.FC<isAChild> = ({ children }) => {
 				userEmail,
 				setUserEmail,
 				userPassword,
-				setUserPassword
+				setUserPassword,
+				err,
+				setErr,
 			}}
 		>
 			{children}
