@@ -20,7 +20,7 @@ const AsideNav: React.FC = () => {
 				<ul className="flex flex-col gap-4">
 					<ListItem>
 						<FaWallet />
-						<Link to="/">Wallet</Link>
+						<Link to="/wallet">Wallet</Link>
 					</ListItem>
 					<ListItem>
 						<MdOutlineCurrencyExchange />
