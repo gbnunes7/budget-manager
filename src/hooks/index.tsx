@@ -1,5 +1,5 @@
 import { useContext, useEffect } from "react";
-import { BudgetContext } from "../context";
+import { BudgetContext } from "../context/budgetContext";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import BArray from "../interface/BArray";
@@ -26,6 +26,10 @@ const useBudgetContext = () => {
 		setBtc,
 		eth,
 		setEth,
+		setUserEmail,
+		setUserPassword,
+		userEmail,
+		userPassword,
 	} = useContext(BudgetContext)!;
 
 	const navigate = useNavigate();
@@ -205,6 +209,10 @@ const useBudgetContext = () => {
 		onHandleChangeValor,
 		onHandleChangeDescription,
 		handleDelete,
+		setUserEmail,
+		setUserPassword,
+		userEmail,
+		userPassword,
 	};
 };
 
