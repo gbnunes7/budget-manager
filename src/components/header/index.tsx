@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import UserLogin from "../userLogin";
+import useAuth from "../../hooks/useAuth/intex";
+import useBudgetContext from "../../hooks";
 
 interface HeaderProps {
 	src: string;
@@ -7,16 +8,22 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ src, alt }) => {
+	const { signout } = useAuth();
+	const { navigate } = useBudgetContext();
+
 	return (
 		<header className="bg-black max-h-[68px] flex justify-between items-center px-5">
-			<Link to='/dashboard'>
+			<Link to="/dashboard">
 				<img src={src} alt={alt} className="w-[100px] h-[100px]" />
 			</Link>
-			<UserLogin
-				src="https://github.com/gbnunes7.png"
-				alt="logo"
-				nome="Gabriel Melo"
-			/>
+			<button
+				className="text-white"
+				onClick={() => {
+					signout(), navigate("/");
+				}}
+			>
+				Signout
+			</button>
 		</header>
 	);
 };
