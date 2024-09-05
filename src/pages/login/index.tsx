@@ -34,7 +34,7 @@ const Login = () => {
 			<div className="flex w-3/6 h-3/6 shadow-xl shadow-[#2A2A2A]">
 				<div className="bg-black h-full w-3/6 flex">
 					<div className="flex flex-col text-white gap-6 pl-[30px] w-full">
-						<img src="/public/logo.png" alt="" className="w-2/5" />
+						<img src="/logo.png" alt="" className="w-2/5" />
 						<p>Welcome, login to your account!</p>
 						<div className="flex flex-col gap-2">
 							<input
@@ -77,7 +77,7 @@ const Login = () => {
 						</div>
 					</div>
 				</div>
-				<div className="bg-[url('public/iconLogo.png')] bg-no-repeat bg-cover bg-center h-full w-3/6"></div>
+				<div className="bg-[url('/iconLogo.png')] bg-no-repeat bg-cover bg-center h-full w-3/6"></div>
 			</div>
 		</div>
 	);
