@@ -9,7 +9,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ src, alt }) => {
 	const { signout } = useAuth();
-	const { navigate } = useBudgetContext();
+	const { navigate, setUserEmail, setUserPassword, setErr } = useBudgetContext();
 
 	return (
 		<header className="bg-black max-h-[68px] flex justify-between items-center px-5">
@@ -19,7 +19,7 @@ const Header: React.FC<HeaderProps> = ({ src, alt }) => {
 			<button
 				className="text-white"
 				onClick={() => {
-					signout(), navigate("/");
+					signout(), navigate("/"), setUserEmail(''), setUserPassword(''), setErr('');
 				}}
 			>
 				Signout
