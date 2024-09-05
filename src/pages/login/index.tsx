@@ -4,7 +4,7 @@ import { FaRegPenToSquare } from "react-icons/fa6";
 import useAuth from "../../hooks/useAuth/intex";
 
 const Login = () => {
-	const { userEmail, userPassword, setUserEmail, setUserPassword, navigate } =
+	const { userEmail, userPassword, setUserEmail, setUserPassword, navigate, err, setErr } =
 		useBudgetContext();
 
 	const { register, signin } = useAuth();
@@ -13,7 +13,7 @@ const Login = () => {
 		const res = register(userEmail, userPassword);
 
 		if (res) {
-			alert(res);
+			setErr(res);
 			return;
 		}
 	};
@@ -22,7 +22,7 @@ const Login = () => {
 		const res = signin(userEmail, userPassword);
 
 		if (res) {
-			alert(res);
+			setErr(res);
 			return;
 		}
 
@@ -43,7 +43,7 @@ const Login = () => {
 								name="email"
 								autoComplete="off"
 								value={userEmail}
-								onChange={(e) => setUserEmail(e.target.value)}
+								onChange={(e) => [setUserEmail(e.target.value), setErr('')]}
 								placeholder="Email Adress"
 								className="placeholder:relative p-2 w-3/4 h-[50px] focus:text-sm bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA] focus:placeholder:text-[12px] focus:placeholder:bottom-[16px] placeholder:opacity-100 focus:placeholder:opacity-100"
 							/>
@@ -54,10 +54,11 @@ const Login = () => {
 								autoComplete="off"
 								placeholder="Password"
 								value={userPassword}
-								onChange={(e) => setUserPassword(e.target.value)}
+								onChange={(e) => [setUserPassword(e.target.value), setErr('')]}
 								className="placeholder:relative p-2 w-3/4 h-[50px] focus:text-sm bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA] focus:placeholder:text-[12px] focus:placeholder:bottom-[16px] placeholder:opacity-100 focus:placeholder:opacity-100"
 							/>
 						</div>
+						<div className="text-[12px] text-red-500">{err}</div>
 						<div className="flex gap-4">
 							<button
 								onClick={handleLogin}
