@@ -20,7 +20,7 @@ const DashboardPage = () => {
 					<p className="text-[56px] font-bold text-white"> R$ {balance.toFixed(2)}</p>
 				</div>
 				<BudgetOperations />
-				<div className="flex gap-6">
+				<div className="grid grid-cols-2 gap-2 md:grid-cols-4 md:grid-row-1 md:justify-center md:max-w-[850px]">
 					<WalletCard
 						iconImport={BsFillArrowDownSquareFill}
 						value={income}
