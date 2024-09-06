@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth/intex";
 import useBudgetContext from "../../hooks";
+import DropdownMenu from "../dropdownMenu";
 
 interface HeaderProps {
 	src: string;
@@ -24,6 +25,7 @@ const Header: React.FC<HeaderProps> = ({ src, alt }) => {
 			>
 				Signout
 			</button>
+			<DropdownMenu/>
 		</header>
 	);
 };
