@@ -11,7 +11,7 @@ import CryptoCard from "../crypto/intex";
 
 const AsideNav: React.FC = () => {
 	return (
-		<aside className="w-1/5 flex flex-col bg-black gap-12 py-6 px-5">
+		<aside className=" hidden lg:w-1/5 lg:flex lg:flex-col lg:bg-black lg:gap-12 lg:py-6 lg:px-5">
 			<div className="flex items-center">
 				<FaMessage  className="text-white text-2xl"/>
 				<SwiperMessage />
