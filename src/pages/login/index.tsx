@@ -23,6 +23,8 @@ const Login = () => {
 			setErr(res);
 			return;
 		}
+		
+		setErr('Conta Registrada com sucesso!')
 	};
 
 	const handleLogin = () => {
@@ -67,7 +69,7 @@ const Login = () => {
 								className="p-2 w-full h-[50px] focus:text-sm bg-[#0F0F13] text-[#8A8A98] rounded focus:outline-none focus:ring-2 focus:ring-[#4807EA] focus:placeholder:text-[12px] placeholder:opacity-100"
 							/>
 						</div>
-						<div className="text-[12px] text-red-500">{err}</div>
+						<div className="text-[12px] text-yellow-200">{err}</div>
 						<div className="flex gap-4 justify-center lg:justify-start">
 							<button
 								onClick={handleLogin}
